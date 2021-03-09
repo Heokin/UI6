@@ -17,11 +17,7 @@ class ViewController: UIViewController {
     let thirdLabel = UILabel()
     let fourthLabel = UILabel()
     
-    override func loadView() {
-        let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .gray
-        self.view = view
-        
+    override func viewDidLoad() {
         fillButtonAction.frame = CGRect(x: 80, y: 600, width: 65, height: 65)
         fillButtonAction.setTitle("FILL", for: .normal)
         fillButtonAction.backgroundColor = .black
@@ -40,6 +36,12 @@ class ViewController: UIViewController {
         view.addSubview(fourthLabel)
     }
     
+    override func loadView() {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = .gray
+        self.view = view
+    }
+    
     @objc func fillSquareButton() {
         firstLabel.isHidden = false
         secondLabel.isHidden = false
@@ -48,6 +50,7 @@ class ViewController: UIViewController {
         
         firstLabel.frame = CGRect(x: randomSizeLabel().x, y: randomSizeLabel().y, width: 65, height: 65)
         firstLabel.backgroundColor = .yellow
+        
         secondLabel.frame = CGRect(x: randomSizeLabel().x, y: randomSizeLabel().y, width: 65, height: 65)
         secondLabel.backgroundColor = .red
         thirdLabel.frame = CGRect(x: randomSizeLabel().x, y: randomSizeLabel().y, width: 65, height: 65)

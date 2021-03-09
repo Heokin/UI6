@@ -11,18 +11,20 @@ class ViewController: UIViewController {
 
     let circleActionButton = UIButton()
     var colorArray = [UIColor.red, UIColor.green, UIColor.yellow, UIColor.blue]
-    override func loadView() {
-        let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .gray
-        self.view = view
-        
+    
+    override func viewDidLoad() {
         circleActionButton.frame = CGRect(x: randonApear().x, y: randonApear().y, width: 65, height: 65)
         circleActionButton.backgroundColor = colorArray[Int.random(in: 0..<colorArray.count - 1)]
         circleActionButton.layer.cornerRadius = 30
         circleActionButton.addTarget(self, action: #selector(tapButton), for: .touchUpInside)
         
         view.addSubview(circleActionButton)
-        
+    }
+    
+    override func loadView() {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = .gray
+        self.view = view
     }
 
     @objc func tapButton() {

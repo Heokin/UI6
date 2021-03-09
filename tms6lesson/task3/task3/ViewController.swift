@@ -12,11 +12,8 @@ class ViewController: UIViewController {
     var xPosition: Int = 160
     var yPosition: Int = 450
     
-    override func loadView() {
-        let view = UIView(frame: UIScreen.main.bounds)
-        view.backgroundColor = .gray
-        self.view = view
-        
+    
+    override func viewDidLoad() {
         UpButton.frame = CGRect(x: 182, y: 696, width: 60, height: 60)
         UpButton.backgroundColor = .black
         UpButton.setTitle("UP", for: .normal)
@@ -47,7 +44,12 @@ class ViewController: UIViewController {
         view.addSubview(leftButton)
         view.addSubview(rightButton)
         view.addSubview(mainLabel)
-        
+    }
+    
+    override func loadView() {
+        let view = UIView(frame: UIScreen.main.bounds)
+        view.backgroundColor = .gray
+        self.view = view
     }
     
     @objc func upButtonAction() {
